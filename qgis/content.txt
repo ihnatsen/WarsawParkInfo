@@ -1,0 +1,27 @@
+zone WGS 84/ UTM zone 34 : 32634
+
+city:
+key: boundary
+value: administrative
+in: Warszawa
++
+key: admin_level
+value: 6
+in: Warszawa
+
+district 
+key: admin_level
+value: 9
+in: Warszawa
+
+park
+key: leisure
+value: park
+in: Warszawa
+
+subway
+key: railway
+value: subway_entrance
+in: Warszawa
+
+
