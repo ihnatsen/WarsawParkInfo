@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../static/for_entry/globals.css" />
+    <link rel="stylesheet" href="../static/for_entry/style.css" />
+</head>
+<body>
+<div class="frame">
+    <div class="frame-wrapper">
+        <div class="div">
+            <div class="div-2">
+                <div class="group">
+                    <div class="overlap-group">
+                        <div class="text-wrapper">Parki</div>
+                        <a href="entry">
+                            <img class="image" src="https://cdn-icons-png.flaticon.com/128/2169/2169407.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="navbar">
+                    <div><button class="text-wrapper-2" onclick="showText('text1')">O projekcie</button></div>
+                    <img class="line" src="img/line-1.svg" />
+                    <div><button class="text-wrapper-2" onclick="showText('text2')">WIT</button></div>
+                    <img class="line" src="img/line-2.svg" />
+                    <div class="text-wrapper-2"><a href="map">Open map</a></div>
+                    <img class="line" src="img/line-3.svg" />
+                    <div><button class="text-wrapper-2" onclick="showText('text3')">Szukaj</button></div>
+                </div>
+                <div class="text-wrapper-2">
+                    <div class="info-block" id="infoBlock">
+                        <div class="navbar" id="text1" style="display: none;"><ul>
+                            <li>Projekt ten został opracowany z myślą o przedmiocie 'Baza danych przestrzennych'.</li>
+                            <li>Jego celem jest dostarczenie podstawowych informacji o parkach 🌳 znajdujących się w Warszawie 🇵🇱.</li>
+                            <li>Do analizy i przetwarzania danych wybrano bazę danych PostgreSQL <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png" width="30" height="30">, a niezbędne funkcje do pracy z tymi danymi zostały zaimplementowane w dedykowanym module.</li>
+                            <li>W celu wyszukiwania, analizy oraz wizualizacji danych wykorzystano oprogramowanie QGIS <img src="https://avatars.githubusercontent.com/u/483444?v=4" width="30" height="30"> w wersji 3.42, a interfejs graficzny zapewnia przeglądarka internetowa.</li>
+                            <li>Komunikację między przeglądarką a bazą danych zapewnia biblioteka Flask <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Flask_logo.svg" width="30" height="30"><br> w Pythonie <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/640px-Python-logo-notext.svg.png" width="30" height="30">.</li>
+                        </ul>
+                            <br><br>
+                            <ul>
+                                <li>Nazarii Pinchuk 🐭</li>
+                                <li>Danylo Berezhanskyi 🐯</li>
+                                <li>Ivan Ihnatsenkau :🐸</li>
+                                <li>Viktor Pynylo 🐺</li>
+                            </ul>
+                        </div>
+                        <div class="navbar" id="text2" style="display: none;">
+                            <img src="https://poczta.wit.edu.pl/WIT-Logo.png?s=1698759053"/>
+                            <br>
+                            Akademia WIT w Warszawie – niepubliczna szkoła wyższa powstała w 1996 roku w
+                            Warszawie. Jej założycielem jest Fundacja Krzewienia Nauk Systemowych,
+                            która powstała z inicjatywy Prezesa Polskiej Akademii Nauk.
+                            Od kilku lat powszechnie używana jest nazwa WIT
+                            Szkoła Wyższa pod auspicjami PAN.
+                        </div>
+                    </div>
+                    <div class="navbar" id="text3" style="display: none;">
+                        <form action="/search" method="post">
+                            <label for="district">Dzielnica:</label><br />
+                            <input type="text" id="district" name="district"  /><br /><br />
+                            <label for="subway">Metro:</label><br />
+                            <input type="text" id="subway" name="subway"  /><br /><br />
+                            <label for="rating">Rating:</label><br />
+                            <input id="rating" name="rating"><br /><br />
+                            <input type="submit" value="FIND" />
+                        </form>
+                </div>
+
+                <script>
+                    // Функция для отображения текста в зависимости от кнопки
+                    function showText(textId) {
+                        // Скрываем все блоки текста
+                        var texts = document.querySelectorAll('.info-block div');
+                        texts.forEach(function(text) {
+                            text.style.display = 'none';
+                        });
+                        var searchBlock = document.getElementById('text3');
+                        if (searchBlock) {
+                            searchBlock.style.display = 'none';
+                        }
+
+
+                        // Показываем выбранный блок текста
+                        var selectedText = document.getElementById(textId);
+                        selectedText.style.display = 'block';
+                    }
+                </script>
+            </div>
+            {% block div  %}
+                {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block div %}
+<div class="frame">
+<div class="div-wrapper">
+    <div class="div-3">
+        <div class="div-wrapper-2"><div class="text-wrapper-3">Znaleziono {{ n }} park(ów)</div></div>
+        {% for park in parks %}
+        <div class="div-4">
+            <div class ='the_div'>
+            <img class="image-3" width="50" height="50" src="https://cdn-icons-png.flaticon.com/128/7057/7057859.png" />
+            </div>
+            <div class="div-5">
+                <div class="div-2">
+                    <div class="text-wrapper-4">Nazwa</div>
+                    <div class="text-wrapper-5">{{ park.name }}</div>
+                </div>
+                <div class="div-2">
+                    <div class="text-wrapper-4">Polozenie</div>
+                    <p class="p">{{ park.districts }}</p>
+                </div>
+                <div class="div-2">
+                    <div class="text-wrapper-4">Powierzchnia</div>
+                    <div class="text-wrapper-5">{{park.area}}</div>
+                </div>
+                <div class="div-2">
+                    <div class="text-wrapper-4">Atrakcji</div>
+                    <p class="p">{{park.attraction}}</p>
+                </div>
+                <div class="div-2">
+                    <div class="text-wrapper-4">Ocena</div>
+                    <div class="text-wrapper-5">{{ park.rating }}</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+{% endblock %}
